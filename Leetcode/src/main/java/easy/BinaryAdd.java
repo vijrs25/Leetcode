@@ -1,5 +1,6 @@
 package easy;
 
+//{}
 public class BinaryAdd {
 // how binary numbers are added
 //0,1, 3, 111 = 7, 1111 = 15, 11111 = 31	
@@ -7,8 +8,13 @@ public class BinaryAdd {
 // numbers to binary -> binary
 // add binary numbers and return characters
 	
-	public static void main(String[] args) {
-	     System.out.println(addBinaryNum("1100", "0100"));
+	public static void main(String[] args) throws InterruptedException {
+		long st = System.currentTimeMillis();
+	//	System.out.println(addBinaryNum("1101", "0111"));
+	    System.out.println(addBinary("1101","0111"));
+	    //Thread.sleep(10);
+	    long et = System.currentTimeMillis();
+	    System.out.println((et-st));
 	}
 	  static String addBinaryNum(String a, String b){
 		  return num2Bin(bin2Num(a)+bin2Num(b));
@@ -34,6 +40,27 @@ public class BinaryAdd {
 		  i=i+num;
 		  return new StringBuffer(i).reverse().toString();
 	  }
+	  
+	 //Fastest Method 
+	  static String addBinary(String a, String b){
+	  
+	  StringBuilder sb = new StringBuilder();	  
+	  int carry =0 ;
+	  int i = a.length()-1;
+	  int j = b.length()-1;
+	  while(i>=0|| j>=0 || carry==1){
+		if(i>=0){
+			carry += a.charAt(i--)-'0';
+		}  
+		if(j>=0){
+			carry += b.charAt(j--)-'0';
+		}
+	  System.out.println("carry "+carry +" remainder "+carry%2);	
+	  sb.append(carry%2);
+	  carry/=2;
+	  }
+	  return sb.reverse().toString();
+	  }
+	  
+	  
 }
-
-

@@ -1,0 +1,15 @@
+This is the code for Merging two Strings 
+-->
+StringBuilder result = new StringBuilder();
+	        int i = 0;
+	        while (i < a.length() || i < b.length()) {
+	            if (i < a.length()) {
+	                result.append(a.charAt(i));
+	            }
+	            if (i < b.length()) {
+	                result.append(b.charAt(i));
+	            }
+	            i++;
+	        }
+			no index outof bound issue with String Builder but char has null pointer Exception.
+-->			
